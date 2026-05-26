@@ -1,0 +1,386 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const featured = [
+  { img: "/images/products/cream-cracker.jpg", name: "Cream Cracker", cat: "Crackers" },
+  { img: "/images/products/lemon-puff.jpg", name: "Lemon Puff", cat: "Cream Biscuits" },
+  { img: "/images/products/butter-cookies.jpg", name: "Butter Cookies", cat: "Cookies" },
+  { img: "/images/products/fancy-gem.jpg", name: "Fancy Gems", cat: "For Kids" },
+];
+
+const credentials = ["Halal Certified", "Trusted Since 1947", "Quality Assured", "Made in Malaysia", "Family Favourite"];
+
+const quality = [
+  { k: "Time-honoured recipes", v: "The same trusted taste families have grown up with, baked to a consistent standard." },
+  { k: "Halal & quality assured", v: "Produced under strict food-safety and Halal-certified processes." },
+  { k: "From everyday to gifting", v: "Crackers, cream biscuits and cookies — plus festive gift tins for every occasion." },
+];
+---
+
+<Layout path="/">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-hero-stagger>
+        <span class="eyebrow">Malaysia's Heritage Biscuit Brand</span>
+        <h1>The biscuits we <span class="accent">grew up</span> with.</h1>
+        <p class="hero-lead">
+          From crispy crackers to buttery cookies and festive gift tins, Khong Guan has been
+          a household name in Malaysia for generations — the trusted taste in every red tin.
+        </p>
+        <div class="hero-actions">
+          <a href="/products" class="btn btn-primary">Explore products
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/contact" class="btn btn-ghost">Become a stockist</a>
+        </div>
+        <p class="hero-trust">A trusted name in homes across <strong>Malaysia</strong> &amp; beyond.</p>
+      </div>
+
+      <div class="hero-art" data-hero-art>
+        <div class="hero-img-main">
+          <img src="/images/products/crispy-delight.jpg" alt="Khong Guan assorted biscuit gift tin" width="620" height="520" />
+        </div>
+        <figure class="hero-float">
+          <img src="/images/products/butter-cookies.jpg" alt="Khong Guan butter cookies" width="280" height="200" />
+          <figcaption>Butter Cookies</figcaption>
+        </figure>
+        <div class="hero-badge">
+          <span class="badge-kg">KG</span>
+          <span>Since<br><strong>1947</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Cream Crackers</span><i></i><span>Cream Biscuits</span><i></i><span>Butter Cookies</span><i></i>
+      <span>Marie</span><i></i><span>Iced Gems</span><i></i><span>Gift Tins</span><i></i>
+      <span>Cream Crackers</span><i></i><span>Cream Biscuits</span><i></i><span>Butter Cookies</span><i></i>
+      <span>Marie</span><i></i><span>Iced Gems</span><i></i><span>Gift Tins</span><i></i>
+    </div>
+  </div>
+
+  <!-- ============ BRANDS ============ -->
+  <section class="brands">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">Our range</span>
+          <h2 class="section-title">Everyday favourites &amp; festive tins</h2>
+        </div>
+        <p class="section-lead">From the biscuit tin on the kitchen counter to the gift you bring for the holidays — there's a Khong Guan for every moment.</p>
+      </header>
+
+      <div class="brand-grid" data-reveal-group>
+        <article class="brand-card">
+          <div class="brand-media"><img src="/images/products/cream-cracker.jpg" alt="Khong Guan cream crackers" loading="lazy" /></div>
+          <div class="brand-body">
+            <span class="brand-tag tag-navy">Everyday</span>
+            <h3>Crackers &amp; cream biscuits</h3>
+            <p>Crispy cream crackers, lemon puffs and classic cream biscuits — the dependable everyday favourites.</p>
+            <a href="/products" class="textlink">View range →</a>
+          </div>
+        </article>
+        <article class="brand-card">
+          <div class="brand-media"><img src="/images/products/love-tin.jpg" alt="Khong Guan assorted gift tin" loading="lazy" /></div>
+          <div class="brand-body">
+            <span class="brand-tag tag-red">Gifting</span>
+            <h3>Cookies &amp; gift tins</h3>
+            <p>Buttery cookies and beautifully assorted biscuit tins — made for sharing, gifting and celebrating.</p>
+            <a href="/products" class="textlink">View range →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="featured">
+    <div class="container">
+      <header class="sec-head row" data-reveal>
+        <div>
+          <span class="eyebrow">Best sellers</span>
+          <h2 class="section-title">Made to be enjoyed</h2>
+        </div>
+        <a href="/products" class="btn btn-ghost">All products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </header>
+
+      <div class="prod-grid" data-reveal-group>
+        {featured.map((p) => (
+          <a href="/products" class="prod-card">
+            <div class="prod-media"><img src={p.img} alt={p.name} loading="lazy" /></div>
+            <div class="prod-info">
+              <span class="prod-cat">{p.cat}</span>
+              <h3>{p.name}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUALITY ============ -->
+  <section class="quality">
+    <div class="container quality-grid">
+      <div class="quality-media" data-reveal>
+        <div class="quality-frame">
+          <img src="/images/products/sultana.jpg" alt="Khong Guan sultana biscuits" width="560" height="600" loading="lazy" data-parallax="-26" />
+        </div>
+        <div class="quality-stat" data-parallax="22">
+          <span class="num"><span data-count="75">0</span>+</span>
+          <span class="lbl">years of<br>baking heritage</span>
+        </div>
+      </div>
+      <div class="quality-copy" data-reveal>
+        <span class="eyebrow">Why Khong Guan</span>
+        <h2 class="section-title">The taste families have trusted for generations</h2>
+        <p class="section-lead">Some things shouldn't change. We've kept the same time-honoured recipes and quality that made Khong Guan a household name — tin after tin, year after year.</p>
+        <ul class="quality-list">
+          {quality.map((q) => (
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
+              <div><strong>{q.k}</strong><span>{q.v}</span></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="certs ribbon ribbon-cream">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="ribbon-inner">
+      <div class="container">
+        <span class="eyebrow center certs-eyebrow">Certified &amp; trusted</span>
+      </div>
+      <div class="cert-belt">
+        <div class="cert-belt-track">
+          {[...credentials, ...credentials, ...credentials, ...credentials].map((c) => (
+            <div class="cert-plate"><span>{c}</span></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="cta-box" data-reveal>
+        <div class="cta-copy">
+          <h2>Stock Khong Guan in your store.</h2>
+          <p>Retailers, distributors and wholesale partners — get in touch to carry the biscuits Malaysians know and love.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Become a stockist
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .accent { color: var(--red); }
+  .textlink { font-weight: 600; color: var(--red); font-size: .95rem; }
+  .textlink:hover { color: var(--red-deep); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 72px 0 90px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-copy h1 {
+    font-size: clamp(2.9rem, 6vw, 4.6rem);
+    margin: 22px 0 22px;
+    letter-spacing: -0.04em;
+  }
+  .hero-lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 500px; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 26px; }
+  .hero-trust { font-size: .95rem; color: var(--ink-soft); }
+  .hero-trust strong { color: var(--ink); font-weight: 700; }
+
+  .hero-art { position: relative; }
+  .hero-img-main {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 6 / 5;
+    background: var(--cream);
+  }
+  .hero-img-main img { width: 100%; height: 100%; object-fit: contain; padding: 30px; }
+  .hero-float {
+    position: absolute; left: -28px; bottom: -28px;
+    width: 220px; background: #fff;
+    border-radius: 16px; padding: 10px; box-shadow: var(--shadow-md);
+  }
+  .hero-float img { width: 100%; border-radius: 9px; aspect-ratio: 7/5; object-fit: contain; background: var(--cream); }
+  .hero-float figcaption { font-size: .76rem; font-weight: 600; color: var(--ink-soft); padding: 8px 4px 4px; }
+  .hero-badge {
+    position: absolute; top: -22px; right: -18px;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--navy); color: #fff;
+    padding: 12px 16px; border-radius: 14px; box-shadow: var(--shadow-md);
+  }
+  .hero-badge span { font-family: var(--font-display); font-size: .72rem; line-height: 1.1; letter-spacing: .04em; }
+  .hero-badge strong { font-size: 1.05rem; }
+  .hero-badge .badge-kg {
+    background: #fff; color: var(--red); width: 32px; height: 32px;
+    display: grid; place-items: center; border-radius: 9px;
+    font-weight: 800; font-size: .95rem;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker { background: var(--navy); overflow: hidden; padding: 15px 0; }
+  .ticker-track {
+    display: flex; align-items: center; gap: 28px; white-space: nowrap; width: max-content;
+    animation: scroll 28s linear infinite;
+  }
+  .ticker-track span {
+    font-family: var(--font-display); font-weight: 600; font-size: .92rem;
+    text-transform: uppercase; letter-spacing: .14em; color: rgba(255,255,255,.92);
+  }
+  .ticker-track i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- shared section header ---------- */
+  .brands, .featured { padding: 100px 0 0; }
+  .sec-head { margin-bottom: 48px; }
+  .sec-head.row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .brands .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; }
+  .brands .sec-head .section-lead { margin-top: 0; }
+
+  /* ---------- BRANDS ---------- */
+  .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .brand-card { display: block; }
+  .brand-media {
+    overflow: hidden; border-radius: 28px; background: var(--cream);
+    box-shadow: 0 0 0 rgba(43,27,18,0);
+    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
+  }
+  .brand-media img { width: 100%; aspect-ratio: 16/10; object-fit: contain; padding: 26px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .brand-card:hover .brand-media { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+  .brand-card:hover .brand-media img { transform: scale(1.05); }
+  .brand-body { padding: 24px 6px 0; }
+  .brand-tag {
+    display: inline-block; font-weight: 600; font-size: .74rem;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .tag-navy { color: var(--navy); }
+  .tag-red { color: var(--red); }
+  .brand-body h3 { font-size: 1.6rem; margin-bottom: 10px; letter-spacing: -0.03em; }
+  .brand-body p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 16px; max-width: 440px; }
+
+  /* ---------- FEATURED ---------- */
+  .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
+  .prod-card { display: block; }
+  .prod-media {
+    aspect-ratio: 4/3.4; overflow: hidden; border-radius: 26px;
+    background: var(--cream); box-shadow: 0 0 0 rgba(24,26,51,0);
+    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
+  }
+  .prod-media img { width: 100%; height: 100%; object-fit: contain; padding: 20px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .prod-card:hover .prod-media { transform: translateY(-12px); box-shadow: 0 26px 44px rgba(226,9,13,.16); }
+  .prod-card:hover .prod-media img { transform: scale(1.08); }
+  .prod-info { padding: 18px 6px 0; }
+  .prod-cat { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+  .prod-info h3 {
+    font-size: 1.08rem; margin-top: 6px; letter-spacing: -0.02em;
+    transition: color .25s ease; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .prod-info h3::after {
+    content: "→"; font-size: .95rem; opacity: 0; transform: translateX(-6px);
+    transition: opacity .25s ease, transform .25s ease; color: var(--red);
+  }
+  .prod-card:hover .prod-info h3 { color: var(--red); }
+  .prod-card:hover .prod-info h3::after { opacity: 1; transform: translateX(0); }
+
+  /* ---------- QUALITY ---------- */
+  .quality { padding: 110px 0 0; }
+  .quality-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+  .quality-media { position: relative; }
+  .quality-frame { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 14/15; box-shadow: var(--shadow-md); background: var(--cream); }
+  .quality-frame img { width: 100%; height: 114%; object-fit: contain; object-position: center; padding: 30px; }
+  .quality-stat {
+    position: absolute; right: -22px; bottom: 32px; z-index: 2;
+    background: var(--red); color: #fff; border-radius: 16px;
+    padding: 18px 22px; box-shadow: 0 18px 40px rgba(218,33,40,.3);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .quality-stat .num { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; }
+  .quality-stat .lbl { font-size: .82rem; line-height: 1.25; opacity: .95; }
+  .quality-copy .section-title { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
+  .quality-list { margin-top: 28px; display: grid; gap: 16px; }
+  .quality-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .quality-list svg { width: 22px; height: 22px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
+  .quality-list strong { display: block; font-family: var(--font-display); font-size: 1.02rem; margin-bottom: 2px; }
+  .quality-list span { color: var(--ink-soft); font-size: .96rem; }
+
+  /* ---------- CERTIFICATIONS (conveyor belt) ---------- */
+  .certs-eyebrow { display: flex; justify-content: center; margin-bottom: 40px; }
+  .cert-belt {
+    overflow: hidden;
+    padding: 26px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  }
+  .cert-belt-track {
+    display: flex; gap: 26px; width: max-content;
+    animation: beltScroll 30s linear infinite;
+  }
+  .cert-belt:hover .cert-belt-track { animation-play-state: paused; }
+  .cert-plate {
+    flex: 0 0 auto; height: 60px;
+    background: #fff; border-radius: 999px; box-shadow: var(--shadow-sm);
+    display: grid; place-items: center; padding: 0 34px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .cert-plate:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(43,27,18,.14); }
+  .cert-plate span {
+    font-family: var(--font-display); font-weight: 700; font-size: .95rem;
+    color: var(--ink); white-space: nowrap;
+  }
+  .cert-plate span::before {
+    content: "✦"; color: var(--gold); margin-right: 9px; font-size: .85rem;
+  }
+  @keyframes beltScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .cert-belt-track { animation: none; justify-content: center; }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-box {
+    display: flex; justify-content: space-between; align-items: center; gap: 36px; flex-wrap: wrap;
+  }
+  .cta-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.7rem); margin-bottom: 12px; }
+  .cta-box p { color: rgba(255,255,255,.8); max-width: 460px; }
+  .cta-box .btn { flex-shrink: 0; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 70px; }
+    .hero-art { max-width: 520px; }
+    .quality-grid { grid-template-columns: 1fr; gap: 40px; }
+    .quality-media { max-width: 460px; }
+    .prod-grid { grid-template-columns: 1fr 1fr; }
+    .brand-grid { grid-template-columns: 1fr; }
+    .brands .sec-head { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 560px) {
+    .brand-card { grid-template-columns: 1fr; }
+    .brand-media img { min-height: 200px; }
+    .prod-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  }
+</style>

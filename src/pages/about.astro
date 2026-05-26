@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const timeline = [
+  { year: "1947", title: "A name is born", text: "The Khong Guan biscuit name begins its journey — biscuits baked to bring families together." },
+  { year: "Growth", title: "A household favourite", text: "Khong Guan biscuits become a fixture in Malaysian homes, kopitiams and festive gatherings." },
+  { year: "The red tin", title: "An icon", text: "The assorted biscuit tin becomes a beloved gift and celebration staple across the region." },
+  { year: "Today", title: "Still on the table", text: "Generations on, the same trusted biscuits and cookies remain a part of everyday Malaysian life." },
+];
+
+const stats = [
+  { num: "75", suffix: "+", label: "Years of heritage" },
+  { num: "30", suffix: "+", label: "Biscuit varieties" },
+  { num: "100", suffix: "%", label: "Halal certified" },
+  { num: "1", suffix: "", label: "Beloved red tin" },
+];
+
+const certs = ["Halal Certified", "Quality Assured", "Trusted Since 1947", "Made in Malaysia"];
+---
+
+<Layout path="/about" title="About — Khong Guan">
+  <section class="about-hero">
+    <div class="container about-hero-grid">
+      <div class="about-hero-copy" data-reveal>
+        <span class="eyebrow">About us</span>
+        <h1>The biscuit that's been on Malaysian tables for generations.</h1>
+        <p>Khong Guan is one of the region's most-loved biscuit names — the crackers, cream
+          biscuits and cookies families have grown up with, and the red gift tin that's part
+          of every celebration. Same trusted recipes, same quality, generation after generation.</p>
+      </div>
+      <div class="about-hero-media" data-reveal>
+        <img src="/images/products/crispy-delight.jpg" alt="Khong Guan assorted biscuit tin" width="560" height="460" />
+      </div>
+    </div>
+  </section>
+
+  <section class="stats ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="stats-grid" data-reveal-group>
+        {stats.map((s) => (
+          <div class="stat">
+            <span class="num"><span data-count={s.num}>0</span>{s.suffix}</span>
+            <span class="label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="container story-grid">
+      <article class="story-card" data-reveal>
+        <span class="story-rule"></span>
+        <h2>Our heritage</h2>
+        <p>Decades of baking have made Khong Guan a name families trust — the biscuits passed from one generation's tea-time to the next.</p>
+      </article>
+      <article class="story-card" data-reveal>
+        <span class="story-rule"></span>
+        <h2>Our promise</h2>
+        <p>The same recipes, the same quality. Halal-certified and consistently baked, so every tin tastes just the way you remember.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="timeline-sec">
+    <div class="container">
+      <header class="sec-head center" data-reveal>
+        <span class="eyebrow center">Our journey</span>
+        <h2 class="section-title">Generations in the making</h2>
+      </header>
+      <div class="timeline" data-reveal-group>
+        {timeline.map((t) => (
+          <div class="tl-item">
+            <div class="tl-marker"><span class="tl-year">{t.year}</span></div>
+            <div class="tl-body">
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="certs-sec ribbon ribbon-ink">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner center" data-reveal>
+      <span class="eyebrow center">Certified &amp; trusted</span>
+      <h2>Quality that's officially recognised</h2>
+      <div class="cert-grid">
+        {certs.map((c) => <span class="cert-chip">{c}</span>)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-hero { padding: 64px 0 70px; }
+  .about-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .about-hero-copy h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin: 18px 0 20px; letter-spacing: -0.035em; }
+  .about-hero-copy p { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.65; }
+  .about-hero-media img { width: 100%; border-radius: var(--r-lg); aspect-ratio: 6/5; object-fit: contain; padding: 30px; background: var(--cream); box-shadow: var(--shadow-md); }
+
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .stat { text-align: center; }
+  .stat .num { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4vw, 3rem); display: block; letter-spacing: -0.02em; }
+  .stat .label { font-size: .92rem; color: rgba(255,255,255,.78); }
+
+  .story { padding: 96px 0 0; }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .story-rule { display: block; width: 40px; height: 3px; border-radius: 3px; background: var(--red); margin-bottom: 22px; }
+  .story-card h2 { font-size: 1.6rem; margin-bottom: 12px; letter-spacing: -0.03em; }
+  .story-card p { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.7; }
+
+  .timeline-sec { padding: 100px 0 0; }
+  .sec-head { margin-bottom: 50px; }
+  .timeline { max-width: 760px; margin: 0 auto; }
+  .tl-item { display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding-bottom: 14px; position: relative; }
+  .tl-item:not(:last-child) .tl-marker::after {
+    content: ""; position: absolute; left: 5px; top: 26px; bottom: -14px; width: 2px; background: var(--line);
+  }
+  .tl-marker { position: relative; padding-left: 22px; }
+  .tl-marker::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); }
+  .tl-year { font-family: var(--font-display); font-weight: 700; color: var(--navy); font-size: 1.05rem; }
+  .tl-body { padding-bottom: 24px; }
+  .tl-body h3 { font-size: 1.2rem; margin-bottom: 5px; }
+  .tl-body p { color: var(--ink-soft); }
+
+  .certs-sec h2 { color: #fff; font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 14px 0 30px; }
+  .cert-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .cert-chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+    padding: 11px 22px; border-radius: 999px; font-weight: 500; font-size: .95rem;
+  }
+
+  @media (max-width: 860px) {
+    .about-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .story-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .tl-item { grid-template-columns: 90px 1fr; gap: 16px; }
+  }
+</style>

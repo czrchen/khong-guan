@@ -38,11 +38,6 @@ const mapEmbed = "https://www.openstreetmap.org/export/embed.html?bbox=103.64%2C
           </li>
         </ul>
       </article>
-    </div>
-  </section>
-
-  <section class="form-sec">
-    <div class="container">
       <form class="form" data-reveal onsubmit="event.preventDefault(); this.querySelector('.form-msg').style.display='block';">
         <h2>Send a message</h2>
         <div class="row">
@@ -75,7 +70,7 @@ const mapEmbed = "https://www.openstreetmap.org/export/embed.html?bbox=103.64%2C
   .contact-lead { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.65; max-width: 640px; }
 
   .companies { padding: 44px 0 0; }
-  .company-grid { display: grid; grid-template-columns: 1fr; gap: 26px; max-width: 640px; }
+  .company-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: start; }
   .company-card {
     background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent);
     border-radius: var(--r-lg); padding: 34px 32px;
@@ -96,7 +91,7 @@ const mapEmbed = "https://www.openstreetmap.org/export/embed.html?bbox=103.64%2C
   .company-info a:hover { color: var(--accent); }
 
   .form-sec { padding: 70px 0 0; }
-  .form { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 40px; max-width: 720px; margin: 0 auto; }
+  .form { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 40px;  }
   .form h2 { font-size: 1.5rem; margin-bottom: 26px; }
   .field { margin-bottom: 18px; display: flex; flex-direction: column; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }

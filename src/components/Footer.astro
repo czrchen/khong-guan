@@ -6,8 +6,7 @@ const year = new Date().getFullYear();
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href="/" class="brand">
-        <span class="brand-mark">KG</span>
-        <span class="brand-text">Khong Guan</span>
+        <img class="brand-logo" src="/images/logo.png" alt="Khong Guan" height="40" />
       </a>
       <p>Baking Malaysia's best-loved biscuits and cookies for generations — a household name in every red tin.</p>
       <div class="socials">
@@ -58,13 +57,8 @@ const year = new Date().getFullYear();
     grid-template-columns: 1.7fr 1fr 1fr 1.4fr;
     gap: 40px;
   }
-  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-  .brand-mark {
-    width: 50px; height: 50px; display: grid; place-items: center;
-    background: var(--red); color: #fff; border-radius: 13px;
-    font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em;
-  }
-  .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: #fff; letter-spacing: -0.02em; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; background: #fff; padding: 10px 16px; border-radius: 12px; }
+  .brand-logo { height: 40px; width: auto; object-fit: contain; }
   .footer-brand p { color: #A98F7E; max-width: 320px; font-size: .95rem; line-height: 1.6; }
 
   .socials { display: flex; gap: 18px; margin-top: 22px; }

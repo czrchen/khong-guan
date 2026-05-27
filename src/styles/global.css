@@ -4,18 +4,18 @@
    =========================================================== */
 
 :root {
-  /* Brand — "navy" role = warm dark brown for dark sections */
-  --navy:       #6E2B17;   /* warm dark brown (dark ribbons/stats) */
-  --navy-2:     #8A3A1F;
-  --red:        #E2090D;   /* Khong Guan red (primary) */
-  --red-deep:   #B5070A;
-  --gold:       #E6A52E;   /* biscuit gold accent */
+  /* Brand — Lee Kum Kee red + gold family */
+  --navy:       #6E1418;   /* deep maroon-red (dark ribbons/stats) */
+  --navy-2:     #8A1A1E;
+  --red:        #C8102E;   /* LKK red (primary) */
+  --red-deep:   #A50D26;
+  --gold:       #C6A15B;   /* LKK gold accent */
 
   /* Surface + text */
-  --ink:        #2B1B12;   /* warm near-black text */
+  --ink:        #2B1410;   /* warm near-black text */
   --ink-soft:   #6E5A4E;
   --paper:      #FCF8F0;   /* warm page background */
-  --cream:      #F5EAD6;   /* biscuit cream alt section */
+  --cream:      #F6E9D6;   /* biscuit cream alt section */
   --white:      #FFFFFF;
   --line:       rgba(43, 27, 18, 0.12);
   --line-strong:rgba(43, 27, 18, 0.18);

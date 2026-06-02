@@ -1,44 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const categories = [
-  {
-    name: "Crackers",
-    accent: "var(--red)",
-    items: [
-      { img: "/images/products/cream-cracker.jpg", name: "Cream Cracker", desc: "The crisp, light classic — a tin-cupboard staple." },
-      { img: "/images/products/square-puff.jpg", name: "Square Puff", desc: "Flaky, golden puff crackers." },
-    ],
-  },
-  {
-    name: "Cream Biscuits",
-    accent: "var(--gold)",
-    items: [
-      { img: "/images/products/lemon-puff.jpg", name: "Lemon Puff", desc: "Crisp puff sandwiching zesty lemon cream." },
-      { img: "/images/products/mega-cream.jpg", name: "Mega Cream", desc: "Extra-thick cream-filled favourite." },
-      { img: "/images/products/sultana.jpg", name: "Sultana Biscuit", desc: "Wholesome biscuits baked with sultanas." },
-      { img: "/images/products/durian-cream.jpg", name: "Durian Cream", desc: "A local twist — fragrant durian cream." },
-    ],
-  },
-  {
-    name: "Cookies & Kids' Favourites",
-    accent: "var(--navy)",
-    items: [
-      { img: "/images/products/butter-cookies.jpg", name: "Butter Cookies", desc: "Rich, melt-in-the-mouth butter cookies." },
-      { img: "/images/products/marie.jpg", name: "Marie", desc: "The timeless light tea biscuit." },
-      { img: "/images/products/fancy-gem.jpg", name: "Fancy Gems", desc: "Colourful iced gems kids adore." },
-      { img: "/images/products/zoological.jpg", name: "Zoological Biscuit", desc: "Fun animal-shaped biscuits." },
-    ],
-  },
-  {
-    name: "Gift Tins",
-    accent: "var(--red)",
-    items: [
-      { img: "/images/products/crispy-delight.jpg", name: "Crispy Delight Assorted", desc: "An assorted biscuit tin for every occasion." },
-      { img: "/images/products/love-tin.jpg", name: "Assorted Gift Tin", desc: "Beautifully boxed — made for sharing & gifting." },
-    ],
-  },
-];
 ---
 
 <Layout path="/products" title="Products — Central Vista Snacks & Confectionery">
@@ -53,96 +14,263 @@ const categories = [
     </div>
   </section>
 
-  {categories.map((cat) => (
-    <section class="cat" style={`--c:${cat.accent}`}>
-      <div class="container">
-        <header class="cat-head" data-reveal>
-          <span class="cat-bar"></span>
-          <h2>{cat.name}</h2>
-          <span class="cat-count">{cat.items.length} products</span>
-        </header>
-        <div class="cat-grid" data-reveal-group>
-          {cat.items.map((it) => (
+  <section class="cat" style="--c:var(--red)">
+    <div class="container">
+      <header class="cat-head" data-reveal>
+        <span class="cat-bar"></span>
+        <h2>Crackers</h2>
+        <span class="cat-count">2 products</span>
+      </header>
+      <div class="cat-grid" data-reveal-group>
             <article class="pcard" tabindex="0">
               <div class="pcard-flip">
                 <div class="pcard-face pcard-front">
-                  <div class="pcard-media"><img src={it.img} alt={it.name} loading="lazy" width="600" height="400" /></div>
-                  <h3>{it.name}</h3>
+                  <div class="pcard-media"><img src="/images/products/cream-cracker.jpg" alt="Cream Cracker" loading="lazy" width="600" height="400" /></div>
+                  <h3>Cream Cracker</h3>
                   <span class="flip-hint">Hover for details ↻</span>
                 </div>
                 <div class="pcard-face pcard-back">
-                  <span class="back-cat">{cat.name}</span>
-                  <h3>{it.name}</h3>
-                  <p>{it.desc}</p>
+                  <span class="back-cat">Crackers</span>
+                  <h3>Cream Cracker</h3>
+                  <p>The crisp, light classic — a tin-cupboard staple.</p>
                   <span class="flip-hint light">↩ flip back</span>
                 </div>
               </div>
             </article>
-          ))}
-        </div>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/square-puff.jpg" alt="Square Puff" loading="lazy" width="600" height="400" /></div>
+                  <h3>Square Puff</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Crackers</span>
+                  <h3>Square Puff</h3>
+                  <p>Flaky, golden puff crackers.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
       </div>
-    </section>
-  ))}
+    </div>
+  </section>
+
+  <section class="cat" style="--c:var(--navy)">
+    <div class="container">
+      <header class="cat-head" data-reveal>
+        <span class="cat-bar"></span>
+        <h2>Cream Biscuits</h2>
+        <span class="cat-count">4 products</span>
+      </header>
+      <div class="cat-grid" data-reveal-group>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/lemon-puff.jpg" alt="Lemon Puff" loading="lazy" width="600" height="400" /></div>
+                  <h3>Lemon Puff</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cream Biscuits</span>
+                  <h3>Lemon Puff</h3>
+                  <p>Crisp puff sandwiching zesty lemon cream.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/mega-cream.jpg" alt="Mega Cream" loading="lazy" width="600" height="400" /></div>
+                  <h3>Mega Cream</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cream Biscuits</span>
+                  <h3>Mega Cream</h3>
+                  <p>Extra-thick cream-filled favourite.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/sultana.jpg" alt="Sultana Biscuit" loading="lazy" width="600" height="400" /></div>
+                  <h3>Sultana Biscuit</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cream Biscuits</span>
+                  <h3>Sultana Biscuit</h3>
+                  <p>Wholesome biscuits baked with sultanas.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/durian-cream.jpg" alt="Durian Cream" loading="lazy" width="600" height="400" /></div>
+                  <h3>Durian Cream</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cream Biscuits</span>
+                  <h3>Durian Cream</h3>
+                  <p>A local twist — fragrant durian cream.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat" style="--c:var(--gold)">
+    <div class="container">
+      <header class="cat-head" data-reveal>
+        <span class="cat-bar"></span>
+        <h2>Cookies & Kids' Favourites</h2>
+        <span class="cat-count">4 products</span>
+      </header>
+      <div class="cat-grid" data-reveal-group>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/butter-cookies.jpg" alt="Butter Cookies" loading="lazy" width="600" height="400" /></div>
+                  <h3>Butter Cookies</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cookies & Kids' Favourites</span>
+                  <h3>Butter Cookies</h3>
+                  <p>Rich, melt-in-the-mouth butter cookies.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/marie.jpg" alt="Marie" loading="lazy" width="600" height="400" /></div>
+                  <h3>Marie</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cookies & Kids' Favourites</span>
+                  <h3>Marie</h3>
+                  <p>The timeless light tea biscuit.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/fancy-gem.jpg" alt="Fancy Gems" loading="lazy" width="600" height="400" /></div>
+                  <h3>Fancy Gems</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cookies & Kids' Favourites</span>
+                  <h3>Fancy Gems</h3>
+                  <p>Colourful iced gems kids adore.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/zoological.jpg" alt="Zoological Biscuit" loading="lazy" width="600" height="400" /></div>
+                  <h3>Zoological Biscuit</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Cookies & Kids' Favourites</span>
+                  <h3>Zoological Biscuit</h3>
+                  <p>Fun animal-shaped biscuits.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat" style="--c:var(--red)">
+    <div class="container">
+      <header class="cat-head" data-reveal>
+        <span class="cat-bar"></span>
+        <h2>Gift Tins</h2>
+        <span class="cat-count">2 products</span>
+      </header>
+      <div class="cat-grid" data-reveal-group>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/crispy-delight.jpg" alt="Crispy Delight Assorted" loading="lazy" width="600" height="400" /></div>
+                  <h3>Crispy Delight Assorted</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Gift Tins</span>
+                  <h3>Crispy Delight Assorted</h3>
+                  <p>An assorted biscuit tin for every occasion.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+            <article class="pcard" tabindex="0">
+              <div class="pcard-flip">
+                <div class="pcard-face pcard-front">
+                  <div class="pcard-media"><img src="/images/products/love-tin.jpg" alt="Assorted Gift Tin" loading="lazy" width="600" height="400" /></div>
+                  <h3>Assorted Gift Tin</h3>
+                  <span class="flip-hint">Hover for details ↻</span>
+                </div>
+                <div class="pcard-face pcard-back">
+                  <span class="back-cat">Gift Tins</span>
+                  <h3>Assorted Gift Tin</h3>
+                  <p>Beautifully boxed — made for sharing & gifting.</p>
+                  <span class="flip-hint light">↩ flip back</span>
+                </div>
+              </div>
+            </article>
+      </div>
+    </div>
+  </section>
+
 </Layout>
 
 <style>
-  .page-hero { padding: 64px 0 50px; }
+  .page-hero { padding: 140px 0 50px; }
   .page-title { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 18px 0 18px; letter-spacing: -0.04em; }
   .page-lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 600px; line-height: 1.65; }
-
   .cat { padding: 50px 0 0; }
+  .cat:last-of-type { padding-bottom: 100px; }
   .cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
   .cat-bar { width: 32px; height: 6px; border-radius: 6px; background: var(--c); }
   .cat-head h2 { font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -0.03em; }
   .cat-count { margin-left: auto; font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
-
   .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
-  /* Flip card — front shows the product, back reveals the description */
   .pcard { perspective: 1300px; outline: none; cursor: pointer; }
-  .pcard-flip {
-    position: relative; width: 100%; height: 360px;
-    transform-style: preserve-3d;
-    transition: transform .7s cubic-bezier(.2,.8,.25,1);
-  }
-  .pcard:hover .pcard-flip,
-  .pcard:focus-within .pcard-flip { transform: rotateY(180deg); }
-  .pcard-face {
-    position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-    border-radius: 26px; overflow: hidden; display: flex; flex-direction: column;
-  }
+  .pcard-flip { position: relative; width: 100%; height: 360px; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2,.8,.25,1); }
+  .pcard:hover .pcard-flip, .pcard:focus-within .pcard-flip { transform: rotateY(180deg); }
+  .pcard-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; }
   .pcard-front { background: var(--white, #fff); border: 1px solid var(--line); padding: 18px; box-shadow: var(--shadow-sm); }
-  .pcard-front .pcard-media { flex: 1; min-height: 0; background: var(--cream); border-radius: 18px; overflow: hidden; }
+  .pcard-front .pcard-media { flex: 1; background: var(--cream); border-radius: 18px; overflow: hidden; }
   .pcard-front .pcard-media img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
-  .pcard-ph { width: 100%; height: 100%; display: grid; place-items: center; text-align: center; padding: 18px;
-    background: linear-gradient(135deg, var(--red), var(--navy)); }
-  .pcard-ph span { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; opacity: .95; }
   .pcard-front h3 { font-size: 1.05rem; letter-spacing: -0.02em; margin-top: 14px; }
+  .pcard-ph { flex: 1; display: grid; place-items: center; text-align: center; padding: 18px; background: var(--cream); border-radius: 18px; color: var(--ink-soft); font-weight: 600; }
   .flip-hint { font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
   .flip-hint.light { color: rgba(255,255,255,.7); margin-top: 14px; }
-  .pcard-back {
-    background: var(--navy); color: #fff; transform: rotateY(180deg);
-    border-top: 4px solid var(--c); padding: 30px 26px; justify-content: center;
-  }
+  .pcard-back { background: var(--navy); color: #fff; transform: rotateY(180deg); border-top: 4px solid var(--c); padding: 32px 28px; justify-content: center; }
   .back-cat { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--c); margin-bottom: 12px; }
-  .pcard-back h3 { color: #fff; font-size: 1.4rem; letter-spacing: -0.02em; margin: 0 0 12px; }
+  .pcard-back h3 { color: #fff; font-size: 1.45rem; letter-spacing: -0.02em; margin-bottom: 12px; }
   .pcard-back p { color: rgba(255,255,255,.84); font-size: 1rem; line-height: 1.55; }
   @media (prefers-reduced-motion: reduce) { .pcard-flip { transition: none; } }
-
-  .oem-box {
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 36px; flex-wrap: wrap;
-  }
-  .oem-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 12px; }
-  .oem-box p { color: rgba(255,255,255,.8); max-width: 480px; }
-  .oem-box .btn { flex-shrink: 0; }
-
   @media (max-width: 900px) { .cat-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) {
-    .cat-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-    .oem-box { padding: 40px 30px; }
-  }
-
-  /* wisechip-prodhead-pad */
-  .page-hero { padding-top: 140px; }
-
+  @media (max-width: 560px) { .cat-grid { grid-template-columns: 1fr 1fr; gap: 14px; } }
 </style>

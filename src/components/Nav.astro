@@ -124,6 +124,11 @@ const links = [
   .nav { position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 60; }
   body { /* fixed nav overlays; pages provide their own top padding */ }
 
+
+  /* wisechip-navlink-color */
+  .nav .nav-links a { color: var(--ink-soft) !important; }
+  .nav .nav-links a:hover, .nav .nav-links a.active { color: var(--red) !important; }
+  .nav .nav-toggle span { background: var(--ink) !important; }
 </style>
 
 <script>

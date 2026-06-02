@@ -181,3 +181,6 @@ section { position: relative; }
 .btn-light { background: #fff; color: var(--ink); }
 .btn-light::before { background: var(--gold); }
 .btn-light:hover { color: var(--ink); box-shadow: 0 12px 26px rgba(0,0,0,.25); }
+
+/* wisechip-cream-h2 */
+.ribbon-cream h2, .ribbon-cream .section-title { color: var(--ink) !important; }

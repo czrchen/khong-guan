@@ -6,6 +6,7 @@ const { eyebrow, title, subtitle } = Astro.props;
   <div class="container" data-hero-stagger>
     {eyebrow && <span class="eyebrow eyebrow-light">{eyebrow}</span>}
     <h1 data-split>{title}</h1>
+    <span class="ph-rule" aria-hidden="true"></span>
     {subtitle && <p class="ph-sub">{subtitle}</p>}
   </div>
   <div class="ph-curve" aria-hidden="true">
@@ -18,10 +19,11 @@ const { eyebrow, title, subtitle } = Astro.props;
     position: relative;
     background: var(--red-deep);
     background-image: radial-gradient(120% 140% at 70% 0%, var(--red) 0%, var(--red-deep) 70%);
-    padding: 160px 0 96px;
+    padding: 160px 0 132px;
     text-align: center;
     overflow: hidden;
   }
+  .ph-rule { display: block; width: 64px; height: 3px; border-radius: 2px; background: var(--gold); margin: 24px auto 0; }
   .page-header .eyebrow-light, .page-header .eyebrow-light::before { color: var(--gold); }
   .page-header .eyebrow-light::before { background: var(--gold); }
   .page-header .eyebrow { justify-content: center; margin-bottom: 18px; }

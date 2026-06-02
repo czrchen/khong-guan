@@ -4,9 +4,17 @@ import PageHeader from "../components/PageHeader.astro";
 ---
 
 <Layout path="/products" title="Products — Central Vista Snacks & Confectionery">
-  <PageHeader eyebrow={"Our products"} title={"The full biscuit tin"} subtitle={"Crackers, cream biscuits, cookies and festive gift tins \u2014 the complete Khong Guan range that's been a part of Malaysian homes for generations."} />
+  <PageHeader eyebrow={"Our products"} title={"Our products"} subtitle={""} />
 
-  <section class="cat" style="--c:var(--red)">
+  <div class="prod-filter" data-prod-filter>
+      <button class="pf-tab active" data-filter="all">All</button>
+      <button class="pf-tab" data-filter="c0">Crackers</button>
+      <button class="pf-tab" data-filter="c1">Cream Biscuits</button>
+      <button class="pf-tab" data-filter="c2">Cookies & Kids' Favourites</button>
+      <button class="pf-tab" data-filter="c3">Gift Tins</button>
+  </div>
+
+  <section class="cat" data-cat="c0" style="--c:var(--red)">
     <div class="container">
       <header class="cat-head" data-reveal>
         <span class="cat-bar"></span>
@@ -48,7 +56,7 @@ import PageHeader from "../components/PageHeader.astro";
     </div>
   </section>
 
-  <section class="cat" style="--c:var(--navy)">
+  <section class="cat" data-cat="c1" style="--c:var(--navy)">
     <div class="container">
       <header class="cat-head" data-reveal>
         <span class="cat-bar"></span>
@@ -120,7 +128,7 @@ import PageHeader from "../components/PageHeader.astro";
     </div>
   </section>
 
-  <section class="cat" style="--c:var(--gold)">
+  <section class="cat" data-cat="c2" style="--c:var(--gold)">
     <div class="container">
       <header class="cat-head" data-reveal>
         <span class="cat-bar"></span>
@@ -192,7 +200,7 @@ import PageHeader from "../components/PageHeader.astro";
     </div>
   </section>
 
-  <section class="cat" style="--c:var(--red)">
+  <section class="cat" data-cat="c3" style="--c:var(--red)">
     <div class="container">
       <header class="cat-head" data-reveal>
         <span class="cat-bar"></span>
@@ -237,6 +245,10 @@ import PageHeader from "../components/PageHeader.astro";
 </Layout>
 
 <style>
+  .prod-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 44px 28px 0; max-width: var(--maxw); margin: 0 auto; }
+  .pf-tab { font-family: var(--font-display); font-weight: 600; font-size: .9rem; padding: 10px 20px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--white, #fff); color: var(--ink-soft); cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+  .pf-tab:hover { border-color: var(--ink); color: var(--ink); }
+  .pf-tab.active { background: var(--red); color: #fff; border-color: var(--red); }
   .cat { padding: 50px 0 0; }
   .cat:first-of-type { padding-top: 70px; }
   .cat:last-of-type { padding-bottom: 100px; }
@@ -264,3 +276,19 @@ import PageHeader from "../components/PageHeader.astro";
   @media (max-width: 900px) { .cat-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .cat-grid { grid-template-columns: 1fr 1fr; gap: 14px; } }
 </style>
+
+<script>
+  (function () {
+    const bar = document.querySelector("[data-prod-filter]");
+    if (!bar) return;
+    const tabs = Array.from(bar.querySelectorAll(".pf-tab"));
+    const cats = Array.from(document.querySelectorAll("section.cat"));
+    bar.addEventListener("click", (e) => {
+      const t = e.target.closest(".pf-tab");
+      if (!t) return;
+      tabs.forEach((x) => x.classList.toggle("active", x === t));
+      const f = t.dataset.filter;
+      cats.forEach((c) => { c.style.display = (f === "all" || c.dataset.cat === f) ? "" : "none"; });
+    });
+  })();
+</script>

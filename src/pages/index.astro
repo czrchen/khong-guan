@@ -1,405 +1,343 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Wave from "../components/Wave.astro";
-
-const featured = [
-  { img: "/images/products/cream-cracker.jpg", name: "Cream Cracker", cat: "Crackers" },
-  { img: "/images/products/lemon-puff.jpg", name: "Lemon Puff", cat: "Cream Biscuits" },
-  { img: "/images/products/butter-cookies.jpg", name: "Butter Cookies", cat: "Cookies" },
-  { img: "/images/products/fancy-gem.jpg", name: "Fancy Gems", cat: "For Kids" },
-  { img: "/images/products/mega-cream.jpg", name: "Mega Cream", cat: "Cream Biscuits" },
-  { img: "/images/products/marie.jpg", name: "Marie", cat: "Cookies" },
-];
-
-const credentials = ["Halal Certified", "Trusted Since 1947", "Quality Assured", "Made in Malaysia", "Family Favourite"];
-
-const quality = [
-  { k: "Time-honoured recipes", v: "The same trusted taste families have grown up with, baked to a consistent standard." },
-  { k: "Halal & quality assured", v: "Produced under strict food-safety and Halal-certified processes." },
-  { k: "From everyday to gifting", v: "Crackers, cream biscuits and cookies — plus festive gift tins for every occasion." },
-];
 ---
 
 <Layout path="/">
-  <!-- ============ HERO ============ -->
-  <section class="hero" style="background-image:url(/images/hero/hero-bg.png)">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" data-hero-bg></div>
+    <div class="hero-scrim"></div>
     <div class="container hero-inner" data-hero-stagger>
       <span class="eyebrow eyebrow-light">Malaysia's Heritage Biscuit Brand</span>
       <h1 data-split>The biscuits we grew up with.</h1>
       <div class="hero-actions">
-          <a href="/products" class="btn btn-primary">Explore products
+        <a href="/products" class="btn btn-primary">Explore products
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="/contact" class="btn btn-light">Become a stockist</a>
       </div>
     </div>
-    <div class="hero-curve"><svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0,46 C320,116 1040,4 1440,64 L1440,110 L0,110 Z" fill="var(--paper)"/></svg></div>
-  </section>
-
-  <!-- ============ TICKER ============ -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Cream Crackers</span><i></i><span>Cream Biscuits</span><i></i><span>Butter Cookies</span><i></i>
-      <span>Marie</span><i></i><span>Iced Gems</span><i></i><span>Gift Tins</span><i></i>
-      <span>Cream Crackers</span><i></i><span>Cream Biscuits</span><i></i><span>Butter Cookies</span><i></i>
-      <span>Marie</span><i></i><span>Iced Gems</span><i></i><span>Gift Tins</span><i></i>
-    </div>
-  </div>
-
-  <!-- ============ BRANDS ============ -->
-  <section class="brands">
-    <div class="container">
-      <header class="sec-head" data-reveal>
-        <div>
-          <span class="eyebrow">Our range</span>
-          <h2 class="section-title">Everyday favourites &amp; festive tins</h2>
-        </div>
-        <p class="section-lead">From the biscuit tin on the kitchen counter to the gift you bring for the holidays — there's a Khong Guan for every moment.</p>
-      </header>
-
-      <div class="brand-grid" data-reveal-group>
-        <article class="brand-card">
-          <div class="brand-media"><img src="/images/products/cream-cracker.jpg" alt="Khong Guan cream crackers" loading="lazy" /></div>
-          <div class="brand-body">
-            <span class="brand-tag tag-navy">Everyday</span>
-            <h3>Crackers &amp; cream biscuits</h3>
-            <p>Crispy cream crackers, lemon puffs and classic cream biscuits — the dependable everyday favourites.</p>
-            <a href="/products" class="textlink">View range →</a>
-          </div>
-        </article>
-        <article class="brand-card">
-          <div class="brand-media"><img src="/images/products/love-tin.jpg" alt="Khong Guan assorted gift tin" loading="lazy" /></div>
-          <div class="brand-body">
-            <span class="brand-tag tag-red">Gifting</span>
-            <h3>Cookies &amp; gift tins</h3>
-            <p>Buttery cookies and beautifully assorted biscuit tins — made for sharing, gifting and celebrating.</p>
-            <a href="/products" class="textlink">View range →</a>
-          </div>
-        </article>
-      </div>
+    <div class="hero-curve" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 L0,60 Q720,-20 1440,60 L1440,120 Z" fill="var(--paper)"/></svg>
     </div>
   </section>
 
-  <!-- ============ FEATURED ============ -->
-  <section class="featured">
+  <!-- SHOWCASE -->
+  <section class="showcase">
     <div class="container">
       <header class="sec-head row" data-reveal>
-        <div>
-          <span class="eyebrow">Best sellers</span>
-          <h2 class="section-title">Made to be enjoyed</h2>
-        </div>
+        <div><span class="eyebrow">Best sellers</span><h2 class="section-title" data-split>Customer favourites</h2></div>
         <a href="/products" class="btn btn-ghost">All products
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </header>
-
-    </div>
-
-    <div class="pin-wrap" data-pin-wrap>
-      <div class="pin-track" data-pin-track>
-        {featured.map((p, i) => (
-          <a href="/products" class="pin-card">
-            <span class="pin-index">{String(i + 1).padStart(2, "0")}</span>
-            <div class="pin-media"><img src={p.img} alt={p.name} loading="lazy" /></div>
-            <div class="pin-info">
-              <span class="prod-cat">{p.cat}</span>
-              <h3>{p.name}</h3>
-            </div>
-          </a>
-        ))}
-        <a href="/products" class="pin-card pin-card-cta">
-          <span>See all<br>products</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="show-grid" data-reveal-group>
+        <a href="/products" class="show-card">
+          <span class="show-rank">01</span>
+          <div class="show-media"><img src="/images/products/butter-cookies.jpg" alt="Butter Cookies" loading="lazy" /></div>
+          <div class="show-info"><span class="prod-cat">Signature</span><h3>Butter Cookies</h3></div>
+        </a>
+        <a href="/products" class="show-card">
+          <span class="show-rank">02</span>
+          <div class="show-media"><img src="/images/products/cream-cracker.jpg" alt="Cream Cracker" loading="lazy" /></div>
+          <div class="show-info"><span class="prod-cat">Popular</span><h3>Cream Cracker</h3></div>
+        </a>
+        <a href="/products" class="show-card">
+          <span class="show-rank">03</span>
+          <div class="show-media"><img src="/images/products/crispy-delight.jpg" alt="Crispy Delight" loading="lazy" /></div>
+          <div class="show-info"><span class="prod-cat">Bestseller</span><h3>Crispy Delight</h3></div>
+        </a>
+        <a href="/products" class="show-card">
+          <span class="show-rank">04</span>
+          <div class="show-media"><img src="/images/products/durian-cream.jpg" alt="Durian Cream" loading="lazy" /></div>
+          <div class="show-info"><span class="prod-cat">Favourite</span><h3>Durian Cream</h3></div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ QUALITY ============ -->
-  <section class="quality">
-    <div class="container quality-grid">
-      <div class="quality-media" data-reveal>
-        <div class="quality-frame">
-          <img src="/images/products/sultana.jpg" alt="Khong Guan sultana biscuits" width="560" height="600" loading="lazy" data-parallax="-26" />
+  <!-- PROMO -->
+  <section class="promo ribbon">
+    <Wave side="top" /><Wave side="bottom" />
+    <div class="ribbon-inner">
+      <div class="container promo-grid">
+        <div class="promo-art" data-reveal><img src="/images/products/love-tin.jpg" alt="Khong Guan" data-parallax="20" /></div>
+        <div class="promo-copy" data-reveal>
+          <span class="eyebrow">Why Khong Guan</span>
+          <h2 data-split data-split-accent="1">Made to a higher standard.</h2>
+          <p>Quality ingredients, careful manufacturing and dependable supply — that's what goes into every Khong Guan product.</p>
+          <a href="/products" class="btn btn-primary">Explore the range
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="quality-stat" data-parallax="22">
-          <span class="num"><span data-count="75">0</span>+</span>
-          <span class="lbl">years of<br>baking heritage</span>
-        </div>
-      </div>
-      <div class="quality-copy" data-reveal>
-        <span class="eyebrow">Why Khong Guan</span>
-        <h2 class="section-title">The taste families have trusted for generations</h2>
-        <p class="section-lead">Some things shouldn't change. We've kept the same time-honoured recipes and quality that made Khong Guan a household name — tin after tin, year after year.</p>
-        <ul class="quality-list" data-scrub>
-          {quality.map((q) => (
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
-              <div><strong>{q.k}</strong><span>{q.v}</span></div>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ CERTIFICATIONS ============ -->
-  <section class="certs ribbon ribbon-cream">
-    <Wave side="top" />
-    <Wave side="bottom" />
-    <div class="ribbon-inner">
-      <div class="container">
-        <span class="eyebrow center certs-eyebrow">Certified &amp; trusted</span>
-      </div>
-      <div class="cert-belt">
-        <div class="cert-belt-track">
-          {[...credentials, ...credentials, ...credentials, ...credentials].map((c) => (
-            <div class="cert-plate"><span>{c}</span></div>
-          ))}
-        </div>
+  <!-- TILES -->
+  <section class="flavours">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <span class="eyebrow">The range</span><h2 class="section-title">Our products</h2>
+        <p class="section-lead">A closer look at what we make — explore the full Khong Guan range.</p>
+      </header>
+      <div class="flav-grid" data-reveal-group>
+        <a href="/products" class="flav-tile">
+          <div class="flav-media"><img src="/images/products/butter-cookies.jpg" alt="Butter Cookies" loading="lazy" /></div><h3>Butter Cookies</h3>
+        </a>
+        <a href="/products" class="flav-tile">
+          <div class="flav-media"><img src="/images/products/cream-cracker.jpg" alt="Cream Cracker" loading="lazy" /></div><h3>Cream Cracker</h3>
+        </a>
+        <a href="/products" class="flav-tile">
+          <div class="flav-media"><img src="/images/products/crispy-delight.jpg" alt="Crispy Delight" loading="lazy" /></div><h3>Crispy Delight</h3>
+        </a>
+        <a href="/products" class="flav-tile">
+          <div class="flav-media"><img src="/images/products/durian-cream.jpg" alt="Durian Cream" loading="lazy" /></div><h3>Durian Cream</h3>
+        </a>
+        <a href="/products" class="flav-tile">
+          <div class="flav-media"><img src="/images/products/fancy-gem.jpg" alt="Fancy Gem" loading="lazy" /></div><h3>Fancy Gem</h3>
+        </a>
+        <a href="/products" class="flav-tile">
+          <div class="flav-media"><img src="/images/products/lemon-puff.jpg" alt="Lemon Puff" loading="lazy" /></div><h3>Lemon Puff</h3>
+        </a>
       </div>
     </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values ribbon ribbon-cream">
+    <Wave side="top" /><Wave side="bottom" />
+    <div class="ribbon-inner"><div class="container">
+      <header class="sec-head center" data-reveal>
+        <span class="eyebrow center">Why choose us</span><h2 class="section-title">Quality you can rely on</h2>
+      </header>
+      <div class="val-grid" data-reveal-group>
+          <div class="val-item">
+            <div class="val-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={`<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4Z"/><path d="M9 12l2 2 4-4"/>`} /></div>
+            <h3>Trusted Quality</h3><p>Consistent, carefully made products Khong Guan stands behind — every batch.</p>
+          </div>
+          <div class="val-item">
+            <div class="val-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={`<path d="M12 2l2.5 6.5L21 9l-5 4 1.8 7L12 16.5 6.2 20 8 13 3 9l6.5-.5L12 2Z"/>`} /></div>
+            <h3>Halal Certified</h3><p>Halal-compliant production you and your customers can trust.</p>
+          </div>
+          <div class="val-item">
+            <div class="val-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={`<path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/>`} /></div>
+            <h3>Made in Malaysia</h3><p>Proudly manufactured locally and supplied across the region.</p>
+          </div>
+          <div class="val-item">
+            <div class="val-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={`<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`} /></div>
+            <h3>OEM Ready</h3><p>Contract manufacturing and OEM partnerships welcome.</p>
+          </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container about-grid">
+      <div class="about-media" data-reveal>
+        <div class="about-frame"><img src="/images/products/zoological.jpg" alt="Khong Guan" data-parallax="-22" /></div>
+        <div class="about-stat" data-parallax="20"><span class="num"><span data-count="100">0</span>%</span><span class="lbl">quality<br>assured</span></div>
+      </div>
+      <div class="about-copy" data-reveal>
+        <span class="eyebrow">Our story</span>
+        <h2 class="section-title">About Khong Guan</h2>
+        <p class="section-lead">Khong Guan — Malaysia's Heritage Biscuit Brand. We focus on consistent quality, dependable supply and products our customers come back for.</p>
+        <ul class="about-list" data-scrub>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Consistent quality</strong><span>Carefully made, batch after batch.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Halal &amp; OEM ready</strong><span>Trusted production with OEM partnerships available.</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><strong>Made in Malaysia</strong><span>Crafted locally, supplied widely.</span></div></li>
+        </ul>
+        <a href="/about" class="btn btn-ghost">More about us
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews ribbon" id="reviews">
+    <Wave side="top" /><Wave side="bottom" />
+    <div class="ribbon-inner"><div class="container">
+      <header class="sec-head center" data-reveal><span class="eyebrow center">Loved by customers</span><h2 class="section-title">What people say</h2></header>
+      <div class="rv-carousel" data-carousel>
+        <div class="rv-track" data-rv-track>
+            <figure class="rv-slide">
+              <div class="rv-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg></div>
+              <blockquote>Genuinely impressed with Khong Guan — the quality is consistent and exactly what we expected. Will reorder.</blockquote>
+              <figcaption><strong>Nurul A.</strong><span>Kuala Lumpur</span></figcaption>
+            </figure>
+            <figure class="rv-slide">
+              <div class="rv-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg></div>
+              <blockquote>We've worked with Khong Guan for a while now. Reliable supply and our customers keep coming back.</blockquote>
+              <figcaption><strong>Wei Jie T.</strong><span>Retail partner</span></figcaption>
+            </figure>
+            <figure class="rv-slide">
+              <div class="rv-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.6L21 9.3l-5 4.3 1.6 6.9L12 16.9 6.4 20.5 8 13.6 3 9.3l6.4-.7L12 2Z"/></svg></div>
+              <blockquote>Great value and dependable quality. Easy to deal with and quick to respond. Recommended.</blockquote>
+              <figcaption><strong>Suresh K.</strong><span>Penang</span></figcaption>
+            </figure>
+        </div>
+        <div class="rv-dots" data-rv-dots><button class="active" data-rv-dot="0" aria-label="Review 1"></button><button class="" data-rv-dot="1" aria-label="Review 2"></button><button class="" data-rv-dot="2" aria-label="Review 3"></button></div>
+      </div>
+    </div></div>
   </section>
 </Layout>
 
 <style>
-  .accent { color: var(--red); }
-  .textlink { font-weight: 600; color: var(--red); font-size: .95rem; }
-  .textlink:hover { color: var(--red-deep); }
-
-  /* ---------- HERO ---------- */
-  .hero { padding: 72px 0 90px; }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 56px;
-    align-items: center;
-  }
-  .hero-copy h1 {
-    font-size: clamp(2.9rem, 6vw, 4.6rem);
-    margin: 22px 0 22px;
-    letter-spacing: -0.04em;
-  }
-  .hero-lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 500px; line-height: 1.65; }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 26px; }
-  .hero-trust { font-size: .95rem; color: var(--ink-soft); }
-  .hero-trust strong { color: var(--ink); font-weight: 700; }
-
-  .hero-art { position: relative; }
-  .hero-img-main {
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    aspect-ratio: 6 / 5;
-    background: var(--cream);
-  }
-  .hero-img-main img { width: 100%; height: 100%; object-fit: contain; padding: 30px; }
-  .hero-float {
-    position: absolute; left: -28px; bottom: -28px;
-    width: 220px; background: #fff;
-    border-radius: 16px; padding: 10px; box-shadow: var(--shadow-md);
-  }
-  .hero-float img { width: 100%; border-radius: 9px; aspect-ratio: 7/5; object-fit: contain; background: var(--cream); }
-  .hero-float figcaption { font-size: .76rem; font-weight: 600; color: var(--ink-soft); padding: 8px 4px 4px; }
-  .hero-badge {
-    position: absolute; top: -22px; right: -18px;
-    display: flex; align-items: center; gap: 10px;
-    background: var(--navy); color: #fff;
-    padding: 12px 16px; border-radius: 14px; box-shadow: var(--shadow-md);
-  }
-  .hero-badge span { font-family: var(--font-display); font-size: .72rem; line-height: 1.1; letter-spacing: .04em; }
-  .hero-badge strong { font-size: 1.05rem; }
-  .hero-badge .badge-kg {
-    background: #fff; color: var(--red); width: 32px; height: 32px;
-    display: grid; place-items: center; border-radius: 9px;
-    font-weight: 800; font-size: .95rem;
-  }
-
-  /* ---------- TICKER ---------- */
-  .ticker { background: var(--navy); overflow: hidden; padding: 15px 0; }
-  .ticker-track {
-    display: flex; align-items: center; gap: 28px; white-space: nowrap; width: max-content;
-    animation: scroll 28s linear infinite;
-  }
-  .ticker-track span {
-    font-family: var(--font-display); font-weight: 600; font-size: .92rem;
-    text-transform: uppercase; letter-spacing: .14em; color: rgba(255,255,255,.92);
-  }
-  .ticker-track i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
-  @keyframes scroll { to { transform: translateX(-50%); } }
+  /* ---------- HERO (full-bleed product scene) ---------- */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; background: var(--red-deep); }
+  .hero-bg { position: absolute; inset: 0; background: url(/images/hero/hero-bg.png?v=2) center center / cover no-repeat; transform: scale(1.06); will-change: transform; }
+  .hero-scrim { position: absolute; inset: 0; background:
+      linear-gradient(95deg, rgba(28,8,7,.92) 0%, rgba(28,8,7,.74) 26%, rgba(28,8,7,.34) 48%, rgba(28,8,7,0) 70%),
+      linear-gradient(0deg, rgba(28,8,7,.4) 0%, rgba(28,8,7,0) 24%); }
+  .hero-inner { position: relative; z-index: 2; padding-top: 132px; padding-bottom: 120px; }
+  .hero-inner .eyebrow-light, .hero-inner .eyebrow-light::before { color: var(--gold); }
+  .hero-inner .eyebrow-light::before { background: var(--gold); }
+  .hero-inner h1 { color: #fff; font-size: clamp(3rem, 6.6vw, 5.4rem); margin: 20px 0 22px; letter-spacing: -0.045em; max-width: 13ch; text-shadow: 0 4px 40px rgba(0,0,0,.3); }
+  .hero-inner h1 .split-word > span[style] { color: var(--gold) !important; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 0; }
+  .hero-curve { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 3; line-height: 0; pointer-events: none; }
+  .hero-curve svg { width: 100%; height: clamp(56px, 7vw, 110px); display: block; }
 
   /* ---------- shared section header ---------- */
-  .brands, .featured { padding: 100px 0 0; }
   .sec-head { margin-bottom: 48px; }
   .sec-head.row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
-  .brands .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; }
-  .brands .sec-head .section-lead { margin-top: 0; }
+  .sec-head.center .section-lead { margin-left: auto; margin-right: auto; }
 
-  /* ---------- BRANDS ---------- */
-  .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .brand-card { display: block; }
-  .brand-media {
-    overflow: hidden; border-radius: 28px; background: var(--cream);
-    box-shadow: 0 0 0 rgba(43,27,18,0);
-    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
-  }
-  .brand-media img { width: 100%; aspect-ratio: 16/10; object-fit: contain; padding: 26px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
-  .brand-card:hover .brand-media { transform: translateY(-8px); box-shadow: var(--shadow-md); }
-  .brand-card:hover .brand-media img { transform: scale(1.05); }
-  .brand-body { padding: 24px 6px 0; }
-  .brand-tag {
-    display: inline-block; font-weight: 600; font-size: .74rem;
-    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px;
-  }
-  .tag-navy { color: var(--navy); }
-  .tag-red { color: var(--red); }
-  .brand-body h3 { font-size: 1.6rem; margin-bottom: 10px; letter-spacing: -0.03em; }
-  .brand-body p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 16px; max-width: 440px; }
-
-  /* ---------- FEATURED ---------- */
-  .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
-  .prod-card { display: block; }
-  .prod-media {
-    aspect-ratio: 4/3.4; overflow: hidden; border-radius: 26px;
-    background: var(--cream); box-shadow: 0 0 0 rgba(24,26,51,0);
-    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
-  }
-  .prod-media img { width: 100%; height: 100%; object-fit: contain; padding: 20px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
-  .prod-card:hover .prod-media { transform: translateY(-12px); box-shadow: 0 26px 44px rgba(226,9,13,.16); }
-  .prod-card:hover .prod-media img { transform: scale(1.08); }
-  .prod-info { padding: 18px 6px 0; }
+  /* ---------- BEST SELLERS SHOWCASE ---------- */
+  .showcase { padding: 100px 0 0; }
+  .show-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .show-card { display: block; position: relative; }
+  .show-rank { font-family: var(--font-display); font-weight: 800; font-size: .9rem; color: var(--line-strong); }
+  .show-media { aspect-ratio: 1/1; overflow: hidden; border-radius: 26px; background: var(--cream); margin-top: 8px; box-shadow: 0 0 0 rgba(36,26,23,0); transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease; }
+  .show-media img { width: 100%; height: 100%; object-fit: contain; padding: 18px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .show-card:hover .show-media { transform: translateY(-12px); box-shadow: 0 26px 44px rgba(232,51,44,.18); }
+  .show-card:hover .show-media img { transform: scale(1.08); }
+  .show-info { padding: 16px 4px 0; }
   .prod-cat { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
-  .prod-info h3 {
-    font-size: 1.08rem; margin-top: 6px; letter-spacing: -0.02em;
-    transition: color .25s ease; display: inline-flex; align-items: center; gap: 6px;
-  }
-  .prod-info h3::after {
-    content: "→"; font-size: .95rem; opacity: 0; transform: translateX(-6px);
-    transition: opacity .25s ease, transform .25s ease; color: var(--red);
-  }
-  .prod-card:hover .prod-info h3 { color: var(--red); }
-  .prod-card:hover .prod-info h3::after { opacity: 1; transform: translateX(0); }
+  .show-info h3 { font-size: 1.1rem; margin-top: 6px; letter-spacing: -0.02em; }
 
-  /* ---------- QUALITY ---------- */
-  .quality { padding: 110px 0 0; }
-  .quality-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
-  .quality-media { position: relative; }
-  .quality-frame { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 14/15; box-shadow: var(--shadow-md); background: var(--cream); }
-  .quality-frame img { width: 100%; height: 114%; object-fit: contain; object-position: center; padding: 30px; }
-  .quality-stat {
-    position: absolute; right: -22px; bottom: 32px; z-index: 2;
-    background: var(--red); color: #fff; border-radius: 16px;
-    padding: 18px 22px; box-shadow: 0 18px 40px rgba(218,33,40,.3);
-    display: flex; align-items: center; gap: 12px;
-  }
-  .quality-stat .num { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; }
-  .quality-stat .lbl { font-size: .82rem; line-height: 1.25; opacity: .95; }
-  .quality-copy .section-title { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
-  .quality-list { margin-top: 28px; display: grid; gap: 16px; }
-  .quality-list li { display: flex; gap: 14px; align-items: flex-start; }
-  .quality-list svg { width: 22px; height: 22px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
-  .quality-list strong { display: block; font-family: var(--font-display); font-size: 1.02rem; margin-bottom: 2px; }
-  .quality-list span { color: var(--ink-soft); font-size: .96rem; }
+  /* ---------- PROMO BANNER ---------- */
+  .promo { background: var(--navy); }
+  .promo .ribbon-inner { padding: 84px 0; }
+  .promo-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .promo-art { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 5/4; background: rgba(255,255,255,.06); display: grid; place-items: center; }
+  .promo-art img { width: 100%; height: 110%; object-fit: contain; padding: 24px; }
+  .promo-copy h2 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.035em; margin-bottom: 18px; }
+  .promo-copy p { color: rgba(255,255,255,.78); font-size: 1.08rem; max-width: 460px; margin-bottom: 28px; line-height: 1.65; }
 
-  /* ---------- CERTIFICATIONS (conveyor belt) ---------- */
-  .certs-eyebrow { display: flex; justify-content: center; margin-bottom: 40px; }
-  .cert-belt {
-    overflow: hidden;
-    padding: 26px 0;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
-  }
-  .cert-belt-track {
-    display: flex; gap: 26px; width: max-content;
-    animation: beltScroll 30s linear infinite;
-  }
-  .cert-belt:hover .cert-belt-track { animation-play-state: paused; }
-  .cert-plate {
-    flex: 0 0 auto; height: 60px;
-    background: #fff; border-radius: 999px; box-shadow: var(--shadow-sm);
-    display: grid; place-items: center; padding: 0 34px;
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .cert-plate:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(43,27,18,.14); }
-  .cert-plate span {
-    font-family: var(--font-display); font-weight: 700; font-size: .95rem;
-    color: var(--ink); white-space: nowrap;
-  }
-  .cert-plate span::before {
-    content: "✦"; color: var(--gold); margin-right: 9px; font-size: .85rem;
-  }
-  @keyframes beltScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) {
-    .cert-belt-track { animation: none; justify-content: center; }
-  }
+  /* ---------- FLAVOUR TILES ---------- */
+  .flavours { padding: 100px 0 0; }
+  .flav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+  .flav-tile { display: block; text-align: center; }
+  .flav-media { aspect-ratio: 4/3; overflow: hidden; border-radius: 24px; background: var(--cream); box-shadow: 0 0 0 rgba(36,26,23,0); transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease; }
+  .flav-media img { width: 100%; height: 100%; object-fit: contain; padding: 22px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .flav-tile:hover .flav-media { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+  .flav-tile:hover .flav-media img { transform: scale(1.06) rotate(-2deg); }
+  .flav-tile h3 { font-size: 1.15rem; margin-top: 16px; letter-spacing: -0.02em; transition: color .25s ease; }
+  .flav-tile:hover h3 { color: var(--red); }
 
-  /* ---------- CTA ---------- */
-  .cta-box {
-    display: flex; justify-content: space-between; align-items: center; gap: 36px; flex-wrap: wrap;
+  /* ---------- VALUE BADGES ---------- */
+  .val-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .val-item { text-align: center; }
+  .val-icon {
+    width: 84px; height: 84px; margin: 0 auto 20px; border-radius: 50%;
+    background: var(--white); display: grid; place-items: center;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--line);
+    transition: transform .35s cubic-bezier(.2,.8,.25,1), box-shadow .35s ease;
   }
-  .cta-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.7rem); margin-bottom: 12px; }
-  .cta-box p { color: rgba(255,255,255,.8); max-width: 460px; }
-  .cta-box .btn { flex-shrink: 0; }
+  .val-icon svg { width: 36px; height: 36px; color: var(--red); }
+  .val-item:hover .val-icon { transform: translateY(-6px) scale(1.04); box-shadow: var(--shadow-md); }
+  .val-item h3 { font-size: 1.15rem; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .val-item p { color: var(--ink-soft); font-size: .95rem; line-height: 1.55; max-width: 240px; margin: 0 auto; }
+
+  /* ---------- ABOUT ---------- */
+  .about { padding: 110px 0 0; }
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+  .about-media { position: relative; }
+  .about-frame { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 14/15; box-shadow: var(--shadow-md); background: var(--cream); }
+  .about-frame img { width: 100%; height: 114%; object-fit: contain; padding: 28px; }
+  .about-stat { position: absolute; right: -22px; bottom: 32px; z-index: 2; background: var(--red); color: #fff; border-radius: 16px; padding: 18px 22px; box-shadow: 0 18px 40px rgba(218,33,40,.3); display: flex; align-items: center; gap: 12px; }
+  .about-stat .num { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; }
+  .about-stat .lbl { font-size: .82rem; line-height: 1.25; opacity: .95; }
+  .about-copy .section-title { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
+  .about-list { margin: 28px 0; display: grid; gap: 16px; }
+  .about-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .about-list svg { width: 22px; height: 22px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
+  .about-list strong { display: block; font-family: var(--font-display); font-size: 1.02rem; margin-bottom: 2px; }
+  .about-list span { color: var(--ink-soft); font-size: .96rem; }
+
+  /* ---------- TESTIMONIALS CAROUSEL ---------- */
+  .rv-carousel { max-width: 760px; margin: 0 auto; overflow: hidden; }
+  .rv-track { display: flex; will-change: transform; transition: transform .6s cubic-bezier(.5,0,.2,1); }
+  .rv-slide { flex: 0 0 100%; text-align: center; padding: 0 20px; }
+  .rv-stars { display: flex; justify-content: center; gap: 5px; margin-bottom: 22px; }
+  .rv-stars svg { width: 22px; height: 22px; color: var(--gold); }
+  .rv-slide blockquote { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.4; color: #fff; letter-spacing: -0.02em; }
+  .rv-slide figcaption { margin-top: 26px; }
+  .rv-slide figcaption strong { display: block; color: #fff; font-family: var(--font-display); font-size: 1rem; }
+  .rv-slide figcaption span { color: rgba(255,255,255,.6); font-size: .9rem; }
+  .rv-dots { display: flex; justify-content: center; gap: 10px; margin-top: 38px; }
+  .rv-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; cursor: pointer; padding: 0; background: rgba(255,255,255,.28); transition: background .25s ease, width .25s ease; }
+  .rv-dots button.active { background: var(--gold); width: 26px; border-radius: 999px; }
+
+  /* ---------- CERTIFICATIONS BELT ---------- */
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 960px) {
     .hero-grid { grid-template-columns: 1fr; gap: 70px; }
     .hero-art { max-width: 520px; }
-    .quality-grid { grid-template-columns: 1fr; gap: 40px; }
-    .quality-media { max-width: 460px; }
-    .prod-grid { grid-template-columns: 1fr 1fr; }
-    .brand-grid { grid-template-columns: 1fr; }
-    .brands .sec-head { grid-template-columns: 1fr; gap: 14px; }
+    .promo-grid { grid-template-columns: 1fr; gap: 40px; }
+    .promo-art { max-width: 460px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-media { max-width: 460px; }
+    .show-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+    .flav-grid { grid-template-columns: 1fr 1fr; }
+    .val-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
   }
-  @media (max-width: 560px) {
-    .brand-card { grid-template-columns: 1fr; }
-    .brand-media img { min-height: 200px; }
-    .prod-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 540px) {
+    .show-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .flav-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+    .val-grid { grid-template-columns: 1fr; }
   }
-  /* ---------- FEATURED — pinned horizontal strip ---------- */
-  .pin-wrap { height: min(72vh, 560px); display: flex; align-items: stretch; overflow: hidden; }
-  .pin-track { display: flex; align-items: stretch; gap: 30px; padding: 0 max(28px, calc((100vw - var(--maxw)) / 2 + 28px)); will-change: transform; }
-  .pin-card {
-    flex: 0 0 auto; width: 330px; position: relative;
-    display: flex; flex-direction: column;
-    background: var(--white, #fff); border: 1px solid var(--line); border-radius: var(--r-lg);
-    box-shadow: var(--shadow-sm); padding: 26px 28px 24px; overflow: hidden;
-    transition: box-shadow .4s ease, border-color .4s ease;
-  }
-  .pin-card:hover { box-shadow: var(--shadow-md); border-color: var(--line-strong); }
-  .pin-index { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--line-strong); }
-  .pin-media { flex: 1; min-height: 0; background: var(--cream); border-radius: 18px; margin: 12px 0 18px; overflow: hidden; }
-  .pin-media img { width: 100%; height: 100%; object-fit: contain; padding: 22px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
-  .pin-card:hover .pin-media img { transform: scale(1.07); }
-  .pin-info .prod-cat { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
-  .pin-info h3 { font-size: 1.3rem; margin-top: 6px; letter-spacing: -0.02em; }
-  .pin-card-cta {
-    width: 250px; background: var(--navy); color: #fff; display: flex; flex-direction: column;
-    justify-content: center; gap: 16px;
-  }
-  .pin-card-cta span { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; line-height: 1.1; }
-  .pin-card-cta svg { width: 26px; height: 26px; color: var(--gold); }
-  .pin-card-cta:hover { background: var(--navy-2); }
-  @media (max-width: 760px) {
-    .pin-wrap { height: auto; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 6px 0 20px; scroll-snap-type: x mandatory; }
-    .pin-track { padding: 0 20px; }
-    .pin-card { width: 78vw; max-width: 320px; scroll-snap-align: center; }
-  }
-
-  /* === wisechip-hero (injected) === */
-  .hero { position: relative; padding: 0; background-size: cover; background-position: center; overflow: hidden; }
-  .hero::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(0,0,0,.52), rgba(0,0,0,.18) 55%, transparent); }
-  .hero-inner { position: relative; z-index: 2; padding: 150px 0 200px; max-width: 760px; }
-  .hero-inner .eyebrow, .hero-inner .eyebrow::before { color: var(--gold); }
-  .hero-inner .eyebrow::before { background: var(--gold); }
-  .hero-inner h1 { color: #fff; font-size: clamp(2.6rem, 6vw, 5rem); margin: 18px 0 24px; letter-spacing: -0.04em; max-width: 14ch; text-shadow: 0 4px 40px rgba(0,0,0,.35); }
-  .hero-inner h1 .split-word > span[style] { color: var(--gold) !important; }
-  .hero-inner .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 0; }
-  .btn-light { background: #fff; color: var(--ink); }
-  .btn-light::before { background: var(--gold); }
-  .btn-light:hover { color: var(--ink); }
-  .hero-curve { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 3; line-height: 0; pointer-events: none; }
-  .hero-curve svg { width: 100%; height: clamp(56px, 7vw, 110px); display: block; }
-  @media (max-width: 700px) { .hero-inner { padding: 120px 0 150px; } }
-
+  .about-grid--solo { grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; text-align: center; }
+  .about-grid--solo .about-list { justify-items: start; max-width: 520px; margin-left: auto; margin-right: auto; }
 </style>
+
+<script>
+  // Testimonials carousel — auto-rotate + dot nav (jasmani: quote carousel)
+  function initCarousel() {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const root = document.querySelector<HTMLElement>("[data-carousel]");
+    if (!root) return;
+    const track = root.querySelector<HTMLElement>("[data-rv-track]");
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-rv-dot]"));
+    if (!track || !dots.length) return;
+
+    let i = 0;
+    let timer: number | undefined;
+
+    const go = (n: number) => {
+      i = (n + dots.length) % dots.length;
+      track.style.transform = `translateX(${-i * 100}%)`;
+      dots.forEach((d, k) => d.classList.toggle("active", k === i));
+    };
+
+    const start = () => {
+      if (reduce) return;
+      stop();
+      timer = window.setInterval(() => go(i + 1), 5000);
+    };
+    const stop = () => { if (timer) window.clearInterval(timer); };
+
+    dots.forEach((d, k) => d.addEventListener("click", () => { go(k); start(); }));
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+    start();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCarousel);
+  } else {
+    initCarousel();
+  }
+</script>

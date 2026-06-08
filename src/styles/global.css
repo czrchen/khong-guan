@@ -188,3 +188,11 @@ section { position: relative; }
 /* redeploy 20260602-183711 */
 
 /* redeploy 20260604-002259 */
+
+/* wisechip-dark-ribbon-accent: gold accents/eyebrows on dark ribbons (legible on red or blue navy) */
+.ribbon:not(.ribbon-cream) .eyebrow,
+.ribbon:not(.ribbon-cream) .eyebrow::before { color: var(--gold); }
+.ribbon:not(.ribbon-cream) .eyebrow::before { background: var(--gold); }
+.ribbon:not(.ribbon-cream) .split-word > span[style] { color: var(--gold) !important; }
+.ribbon:not(.ribbon-cream) h2 .accent,
+.ribbon:not(.ribbon-cream) .promo-copy h2 span[style] { color: var(--gold) !important; }
